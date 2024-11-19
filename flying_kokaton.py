@@ -27,7 +27,7 @@ def main():
         screen.blit(flip_bg__img, [x+1600, 0])
         screen.blit(bg_img, [x+3200, 0])
         screen.blit(flip_bg__img, [x+4800, 0])
-        koukaton_rct.move_ip((-1,0))
+        # koukaton_rct.move_ip((-1,0))
         screen.blit(koukaton_img, koukaton_rct)
         key_lst=pg.key.get_pressed()
         if key_lst[pg.K_UP]:
@@ -40,7 +40,7 @@ def main():
             dx = -1
         else:
             dx,dy=0,0
-        koukaton_rct.move_ip(dx, dy)
+        koukaton_rct.move_ip(dx-1, dy)
         pg.display.update()
         tmr += 1        
         clock.tick(200)
