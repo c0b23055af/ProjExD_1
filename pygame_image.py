@@ -16,6 +16,7 @@ def main():
     koukaton_rct = koukaton_img.get_rect()
     koukaton_rct.center=300,200
     tmr = 0
+    dx,dy=0,0
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
@@ -30,13 +31,16 @@ def main():
         screen.blit(koukaton_img, koukaton_rct)
         key_lst=pg.key.get_pressed()
         if key_lst[pg.K_UP]:
-            koukaton_rct.move_ip((0,-1))
-        if key_lst[pg.K_DOWN]:
-            koukaton_rct.move_ip((0,1))
-        if key_lst[pg.K_RIGHT]:
-            koukaton_rct.move_ip((2,0))
-        if key_lst[pg.K_LEFT]:
-            koukaton_rct.move_ip((-1,-0))
+            dy = -1
+        elif key_lst[pg.K_DOWN]:
+            dy = 1
+        elif key_lst[pg.K_RIGHT]:
+            dx = 2
+        elif key_lst[pg.K_LEFT]:
+            dx = -1
+        else:
+            dx,dy=0,0
+        koukaton_rct.move_ip(dx, dy)
         pg.display.update()
         tmr += 1        
         clock.tick(200)
