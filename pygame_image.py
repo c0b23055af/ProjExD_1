@@ -21,10 +21,12 @@ def main():
             if event.type == pg.QUIT: return
             
         x=-(tmr%3200)
+        
         screen.blit(bg_img, [x, 0])
         screen.blit(flip_bg__img, [x+1600, 0])
         screen.blit(bg_img, [x+3200, 0])
         screen.blit(flip_bg__img, [x+4800, 0])
+        koukaton_rct.move_ip((-1,0))
         screen.blit(koukaton_img, koukaton_rct)
         key_lst=pg.key.get_pressed()
         if key_lst[pg.K_UP]:
@@ -32,7 +34,7 @@ def main():
         if key_lst[pg.K_DOWN]:
             koukaton_rct.move_ip((0,1))
         if key_lst[pg.K_RIGHT]:
-            koukaton_rct.move_ip((1,0))
+            koukaton_rct.move_ip((2,0))
         if key_lst[pg.K_LEFT]:
             koukaton_rct.move_ip((-1,-0))
         pg.display.update()
